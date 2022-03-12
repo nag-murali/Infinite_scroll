@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INfinitte_Scroll</title>
+
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+   
+        <div id="parent"></div>
+
+    
+</body>
+</html>
+<script>
+    let parent_div = document.getElementById("parent");
+     add_data(1)
+    function add_data(num) {
+
+        for(var i = num; i < num + 25; i++){
+           let htag = document.createElement("h2");
+           htag.textContent= `Masai Student ${i}`
+           parent_div.appendChild(htag)
+       }
+    }
+      
+   parent_div.addEventListener("scroll", follow);
+  var num = 1;
+    function follow(e){
+       
+        if(e.target.scrollTop + e.target.clientHeight >= e.target.scrollHeight - 1){
+            num =  num + 25;
+            add_data(num)
+        }
+    }
+</script>
